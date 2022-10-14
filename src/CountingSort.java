@@ -60,7 +60,7 @@ public class CountingSort {
         System.out.println("Before:");
         for (int num: nums) System.out.printf("%s,", num);
 
-        customSort(nums, 999);
+        customSort(nums, maxValue);
 
         System.out.println("After:");
         for (int num: nums) System.out.printf("%s,", num);
