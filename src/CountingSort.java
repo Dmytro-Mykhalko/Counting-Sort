@@ -56,14 +56,10 @@ public class CountingSort {
         int volume = Integer.MAX_VALUE - 2;
         int maxValue = 999;
         int[] nums = createAndFillArray(volume, maxValue);
-
-        System.out.println("Before:");
-        for (int num: nums) System.out.printf("%s,", num);
+        System.out.printf("Array is sorted: %s%n", isSorted(nums));
 
         customSort(nums, maxValue);
-
-        System.out.println("After:");
-        for (int num: nums) System.out.printf("%s,", num);
+        System.out.printf("Array is sorted: %s", isSorted(nums));
     }
 
     private static int[] createAndFillArray(int volume, int maxValue) {
@@ -74,5 +70,16 @@ public class CountingSort {
             result[i] = random.nextInt(maxValue + 1);
 
         return result;
+    }
+
+    private static boolean isSorted(int[] arr) {
+        if (arr == null)
+            throw new IllegalArgumentException("Input array can't be null");
+
+        for (int i = 1; i < arr.length; i++)
+            if(arr[i] < arr[i-1])
+                return false;
+
+        return true;
     }
 }
